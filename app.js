@@ -10,13 +10,25 @@ const presidents = [
   { name: "Richard Nixon", terms: 2, party: "R" },
   { name: "John F. Kennedy", terms: 1, party: "D" },
   { name: "Lyndon Johnson", terms: 2, party: "D" },
-  { name: "Dwight Eisenhower", terms: 2, party: "R" }
+  { name: "Dwight Eisenhower", terms: 2, party: "R" },
 ];
 
 //Challenge Questions
 //1) Filter all presidents, leaving only the Democratic ones
+const democrat = presidents.filter(function (president) {
+  if (president.party === "D") {
+    return true;
+  }
+});
+console.table(democrat);
 
-//2)Filter all presidents to leave only one term Republican presidents HINT use If statement
+//2) Filter all presidents to leave only one term Republican presidents HINT use If statement
+const oneTermRepublicans = presidents.filter(function (president) {
+  if (president.party === "R" && president.terms === 1) {
+    return true;
+  }
+});
+console.table(oneTermRepublicans);
 
 //3) return only the last three presidents
 
