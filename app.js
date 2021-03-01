@@ -31,7 +31,38 @@ const oneTermRepublicans = presidents.filter(function (president) {
 console.table(oneTermRepublicans);
 
 //3) return only the last three presidents
+/* const presidentsReversed = [...presidents].reverse();
+console.log(presidentsReversed); realized that original order was already from new to old */
+const lastThree = presidents.slice(0, 3);
+console.table(lastThree);
 
 //4) log all dems who served 2 terms. HINT use chain filter, filter and slice
+const twoTermDems = presidents.filter(function (president) {
+  if (president.party === "D" && president.terms === 2) {
+    return true;
+  }
+});
+console.log(twoTermDems);
 
 //BONUS write a script to check if LBJ was a 2 term president. IF he was then alert("LBJ served two terms") else alert "LBJ was one and done"
+console.log(presidents);
+presidents.filter(function (president) {
+  if (president.name === "Lyndon Johnson" && president.terms === 2) {
+    console.log("LBJ served two terms.");
+  } else {
+    console.log("LBJ was one and done.");
+  }
+});
+
+/*
+When I run this, it says this:
+
+(10) LBJ was one and done
+LBJ served two terms
+LBJ was one and done
+
+However, when I change his terms in the original array from 2 to 1, it says this:
+
+(12) LBJ was one and done.
+
+*/
