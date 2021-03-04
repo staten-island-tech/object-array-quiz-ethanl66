@@ -22,6 +22,13 @@ const democrat = presidents.filter(function (president) {
 });
 console.table(democrat);
 
+/* SOLUTIONS
+- Split them up: function get dems, function that creates presidential html/css
+
+const democrats = presidents.filter((presidents) => presidents.party === "D");
+console.table(democrats); 
+*/
+
 //2) Filter all presidents to leave only one term Republican presidents HINT use If statement
 const oneTermRepublicans = presidents.filter(function (president) {
   if (president.party === "R" && president.terms === 1) {
@@ -30,11 +37,28 @@ const oneTermRepublicans = presidents.filter(function (president) {
 });
 console.table(oneTermRepublicans);
 
+/* SOLUTIONS 
+const republicansOne = presidents.filter((president) => {
+  if (president.party === "R" && president.terms === 1) {
+    return true;
+  }
+});
+
+const oneRepublican = presidents.filter(
+  (president) => oneRepublican.party === "R" && president.terms === 1
+);
+console.log(oneRepublican);
+*/
+
 //3) return only the last three presidents
 /* const presidentsReversed = [...presidents].reverse();
 console.log(presidentsReversed); realized that original order was already from new to old */
 const lastThree = presidents.slice(0, 3);
 console.table(lastThree);
+//console.table(presidents.slice(9,12));
+// HOWEVER, THESE ARE NOT SCALABLE
+console.table(presidents.slice(-3));
+//Slice vs Map vs Splice
 
 //4) log all dems who served 2 terms. HINT use chain filter, filter and slice
 const twoTermDems = presidents.filter(function (president) {
@@ -43,6 +67,10 @@ const twoTermDems = presidents.filter(function (president) {
   }
 });
 console.log(twoTermDems);
+
+const demsTwo = presidents
+  .filter((el) => el.party === "D")
+  .filter((el) => el.terms === 2);
 
 //BONUS write a script to check if LBJ was a 2 term president. IF he was then alert("LBJ served two terms") else alert "LBJ was one and done"
 console.log(presidents);
@@ -53,6 +81,10 @@ presidents.filter(function (president) {
     console.log("LBJ was one and done.");
   }
 });
+
+/*SOLUTION: IT RUNS FOR EACH PRESIDENT
+Jake and Eve
+*/
 
 /*
 When I run this, it says this:
